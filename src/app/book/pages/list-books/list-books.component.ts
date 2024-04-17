@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { ServiceBook } from '../../services/service-book.service';
 import BookLayoutComponent from '../../layouts/book-layout/book-layout.component';
 import SearchComponent from '../../components/search/search.component';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -22,28 +23,39 @@ import SearchComponent from '../../components/search/search.component';
   templateUrl: './list-books.component.html',
   styleUrl: './list-books.component.css'
 })
-export default class ListBooksComponent implements OnInit {
+export default class ListBooksComponent {
 
   public books:Item[]=[]
-  public itemValor:string='Matematicas'
+  public itemValor:string='matematica'
 
+  private bookSubscription: Subscription | undefined; // sirve para hacer referencia a la subscripcion y luego poder eliminarla en OnDestroy
   private serviceBook=inject(ServiceBook)
 
   constructor(){
-
+    this.getBooks(this.itemValor)
   }
+
+
   ngOnInit(): void {
-
+    // aquí lees el valor
+    this.bookSubscription = this.serviceBook.currentBook.subscribe(
+      (book: string) => {
+        if (book.length > 4) {
+          this.getBooks(book);
+        }
+      }
+    );
   }
 
-  getBooks(item:string){
-    this.serviceBook.getBooksForVolumen(item)
-    .subscribe(books => {
-      this.books = books.items
-      console.log(this.books)
-      })
-
+  getBooks(item: string) {
+    this.serviceBook.getBooksForVolumen(item).subscribe((books) => {
+      this.books = books.items;
+      console.log(this.books);
+    });
   }
 
+  ngOnDestroy(): void {
+    this.bookSubscription?.unsubscribe(); // elimina la subscripcion
+  }
 
 }
