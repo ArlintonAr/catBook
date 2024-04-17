@@ -26,16 +26,10 @@ import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 })
 export default class BookLayoutComponent {
 
-  public books: Item[] = []
-  public valueInput: string = ''
 
   constructor(private serviceBook: ServiceBook) {}
 
   getValorInput(item: string) {
-    this.valueInput = item;
-    console.log(this.valueInput);
-
-    // aquí seteas el valor
     this.serviceBook.setCurrentBook(item);
   }
 

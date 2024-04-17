@@ -13,6 +13,9 @@
 
 
 }
+.content-card:hover{
+  border: 3px solid antiquewhite;
+}
 .categorie-img{
   display: flex; /* Utilizamos flexbox */
   flex-direction: column; /* Alineamos el contenido verticalmente */

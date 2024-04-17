@@ -15,7 +15,7 @@ import { BehaviorSubject, Observable, Subject, Subscription, debounceTime } from
 })
 export default class SearchComponent implements OnInit {
 
-  public termInitial: string = ''
+  public termInitial: string = 'Ingeniering'
   /////////////////////////////
   private debouncer: BehaviorSubject<string> = new BehaviorSubject(this.termInitial)
   public readonly currentDebouncer: Observable<string> = this.debouncer.asObservable()
