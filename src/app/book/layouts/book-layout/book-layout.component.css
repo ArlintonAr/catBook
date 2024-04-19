@@ -12,6 +12,11 @@
 
 
 }
+.logo{
+  display: flex;
+  margin-top: 5px;
+
+}
 
 .content-filters{
   padding: 0rem 2rem 0rem 2rem;

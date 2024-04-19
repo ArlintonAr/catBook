@@ -1,18 +1,22 @@
 <div class="content-card"
-  genderBook
-  imgBook
-  publishedDate
-  title
-  authors
-  language
+genderBook
+imgBook
+title
+publishedDate
+authors
+language
+id
 >
 @defer(){
   <div class="categorie-img">
-    @for (item of genderBook; track $index) {
-      <span>{{item}}</span>
-    }
-    <img [src]="imgBook"
-     height="250" width="150">
+
+      <span>{{genderBook?.slice(0)}}</span>
+
+    <a href="" [routerLink]="['/books',id]">
+      <img [src]="imgBook"
+      height="250" width="150"
+      >
+    </a>
     <div class="content-details">
         <span>{{title}}</span>
     </div>

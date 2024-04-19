@@ -3,28 +3,32 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
 
   {
-    path:'books',
+    path: 'books',
     loadComponent: () => import('./book/book.component'),
     children: [
       {
-        path:'list-books',
-        title:'Lista de Libros',
+        path: 'list-books',
+        title: 'Lista de Libros',
         loadComponent: () => import('./book/pages/list-books/list-books.component')
 
       },
       {
-        path:'my-books',
+        path: 'my-books',
         title: 'Mis Libros',
         loadComponent: () => import('./book/pages/my-books/my-books.component')
 
       },
       {
-        path:'', redirectTo: 'list-books', pathMatch: 'full'
+        path: ':id',
+        loadComponent: () => import('./book/pages/book/book.component')
+      },
+      {
+        path: '', redirectTo: 'list-books', pathMatch: 'full'
       }
     ]
   },
   {
-    path:'**',
+    path: '**',
     redirectTo: '/books',
     pathMatch: 'full'
   }

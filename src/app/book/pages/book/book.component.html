@@ -1,0 +1,45 @@
+<div class="content-book">
+
+@defer () {
+    <div class="content-add">
+      <div class="add">
+        <p>Añadir a Biblioteca</p>
+        <button (click)="addToLibrary()"><i class="fa-solid fa-right-to-bracket"></i></button>
+      </div>
+    </div>
+    <div class="content-img-details">
+      <div class="img">
+        <img [src]="book?.volumeInfo?.imageLinks?.thumbnail" >
+      </div>
+      <div class="details">
+        <p>Titulo</p>
+        <span>{{book?.volumeInfo?.title}}</span>
+        <p>Autor</p>
+        <span>{{book?.volumeInfo?.authors}}</span>
+        <p>Idioma</p>
+        <span>{{book?.volumeInfo?.language}}</span>
+        <p>Publicación</p>
+        <span>{{book?.volumeInfo?.publishedDate}}</span>
+      </div>
+    </div>
+
+  }@loading(minimum 400ms) {
+
+    <app-loader-skeleton></app-loader-skeleton>
+
+  }
+    <div class="content-summary">
+      <div class="summary">
+        <p>Descripción</p>
+      </div>
+    </div>
+    <div class="content-summary-paragraph">
+      <div class="paragraph">
+        <p>{{book?.volumeInfo?.description}}</p>
+      </div>
+    </div>
+
+
+
+
+</div>

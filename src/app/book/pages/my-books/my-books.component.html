@@ -1,1 +1,17 @@
-<p>my-books works!</p>
+
+<div class="list-books">
+  <div class="content-cards">
+    @for (book of myBooks; track $index) {
+     <app-card-book
+     [genderBook]="book.volumeInfo.categories"
+     [imgBook]="book.volumeInfo.imageLinks.smallThumbnail"
+     [title]="book.volumeInfo.title"
+     [publishedDate]="book.volumeInfo.publishedDate"
+     [authors]="book.volumeInfo.authors"
+     [language]="book.volumeInfo.language"
+     [id]="book.id"
+      ></app-card-book>
+    }
+  </div>
+</div>
+
