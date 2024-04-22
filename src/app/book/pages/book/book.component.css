@@ -31,11 +31,10 @@
 .content-img-details{
   display: flex;
   padding: 2rem;
-  justify-content: space-around;
+  justify-content:flex-start;
   flex-wrap: wrap;
 
 }
-
 
 .img{
 
@@ -43,24 +42,24 @@
 }
 .img img{
   border: 1px solid black;
-  height: 500px;
+  height: 400px;
   width: 300px;
 }
 
 .details{
 
-  width: 60%;
+  width: 40%;
   padding: 1rem;
 }
 
 .details p{
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 .details span{
   border: 1px solid black;
   padding: .5rem;
-
+  font-size: 14px;
   display: block;
 }
 

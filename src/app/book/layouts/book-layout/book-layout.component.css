@@ -50,10 +50,10 @@
 .navigation ul{
   display: flex;
   gap: 4rem;
-  cursor: pointer;
 }
 .navigation ul li{
   list-style: none;
+  cursor: pointer;
 }
 
 hr{

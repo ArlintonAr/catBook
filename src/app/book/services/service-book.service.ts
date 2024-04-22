@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, filter } from 'rxjs';
 
 import { environment } from '../../environments/environments';
 
@@ -29,8 +29,11 @@ export class ServiceBook {
     this.currentBookSubject.next(book);
   }
 
-  getBooksForVolumen(query: string): Observable<ResponseBooksVolumen> {
-    return this.http.get<ResponseBooksVolumen>(`${this.urlApi}?q=${query}`)
+  getBooksForVolumen(query: string=' '): Observable<ResponseBooksVolumen> {
+    return this.http.get<ResponseBooksVolumen>(`${this.urlApi}?q=${query}&maxResults=40`)
+    .pipe(
+      filter(books=>books.items.length>0)
+    )
   }
 
   getBookForId(id: string): Observable<ResponseBook> {
@@ -41,11 +44,6 @@ export class ServiceBook {
 
 
 
-
-  insertBookListInLocalStorage(book: ResponseBook, listBooks: ResponseBook[]) {
-    listBooks.push(book)
-    localStorage.setItem('myBooks', JSON.stringify(listBooks))
-  }
 
   updateBookInLibrary(book: ResponseBook): void {
     let listBooks: ResponseBook[] = []
@@ -61,6 +59,11 @@ export class ServiceBook {
     }
   }
 
+
+  insertBookListInLocalStorage(book: ResponseBook, listBooks: ResponseBook[]) {
+    listBooks.push(book)
+    localStorage.setItem('myBooks', JSON.stringify(listBooks))
+  }
 
   isBookInLocalStorage(id: string): string {
     let listBooks: ResponseBook[] = []

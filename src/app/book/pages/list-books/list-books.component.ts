@@ -7,6 +7,7 @@ import { LoaderComponent } from '../../components/loader/loader.component';
 import { CardBookComponent } from '../../components/card-book/card-book.component';
 import { ServiceBook } from '../../services/service-book.service';
 import { Item } from '../../interfaces/response-books-volumen';
+import { BookImagePipe } from '../../pipes/book-image.pipe';
 
 @Component({
   selector: 'app-list-books',
@@ -15,7 +16,6 @@ import { Item } from '../../interfaces/response-books-volumen';
     CommonModule,
     LoaderComponent,
     CardBookComponent,
-
 
   ],
   templateUrl: './list-books.component.html',
@@ -37,7 +37,7 @@ export default class ListBooksComponent implements OnInit,OnDestroy {
     // aquí lees el valor
     this.bookSubscription = this.serviceBook.currentBook.subscribe(
       (book: string) => {
-        if (book.length > 4) {
+        if (book.length > 1) {
           this.getBooks(book);
         }
       }

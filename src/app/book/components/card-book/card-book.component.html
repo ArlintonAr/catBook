@@ -13,7 +13,7 @@ id
       <span>{{genderBook?.slice(0)}}</span>
 
     <a href="" [routerLink]="['/books',id]">
-      <img [src]="imgBook"
+      <img [src]="imgBook | bookImage"
       height="250" width="150"
       >
     </a>

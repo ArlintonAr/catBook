@@ -15,7 +15,7 @@ import { BehaviorSubject, Observable, Subject, Subscription, debounceTime } from
 })
 export default class SearchComponent implements OnInit {
 
-  public termInitial: string = 'Ingeniering'
+  public termInitial: string='ingeniering'
  @ViewChild('txtSearchInput') txtSearchInput!:ElementRef<HTMLInputElement>
   /////////////////////////////
   private debouncer: BehaviorSubject<string> = new BehaviorSubject(this.termInitial)
@@ -36,6 +36,7 @@ export default class SearchComponent implements OnInit {
       .subscribe(value => {
         this.onDebounce.emit(value)
       })
+      console.log(this.termInitial)
   }
   /////////////////////////////////Limpieza de la suscripcion
 

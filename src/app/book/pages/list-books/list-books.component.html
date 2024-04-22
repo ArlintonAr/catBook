@@ -3,7 +3,7 @@
     @for (book of books; track $index) {
     <app-card-book
     [genderBook]="book.volumeInfo.categories"
-    [imgBook]="book.volumeInfo.imageLinks.smallThumbnail"
+    [imgBook]=" book.volumeInfo.imageLinks"
     [title]="book.volumeInfo.title"
     [publishedDate]="book.volumeInfo.publishedDate"
     [authors]="book.volumeInfo.authors"
