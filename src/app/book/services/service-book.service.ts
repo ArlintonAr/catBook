@@ -24,16 +24,16 @@ export class ServiceBook {
   constructor() {
   }
 
-   // con esta fn seteas el valor que deseas
-   setCurrentBook(book: string): void {
+  // con esta fn seteas el valor que deseas
+  setCurrentBook(book: string): void {
     this.currentBookSubject.next(book);
   }
 
-  getBooksForVolumen(query:string ): Observable<ResponseBooksVolumen> {
+  getBooksForVolumen(query: string): Observable<ResponseBooksVolumen> {
     return this.http.get<ResponseBooksVolumen>(`${this.urlApi}?q=${query}`)
   }
 
-  getBookForId(id:string):Observable<ResponseBook>{
+  getBookForId(id: string): Observable<ResponseBook> {
     return this.http.get<ResponseBook>(`${this.urlApi}/${id}`)
   }
 
@@ -42,31 +42,44 @@ export class ServiceBook {
 
 
 
-  insertBookListInLocalStorage(book:ResponseBook,listBooks:ResponseBook[]){
+  insertBookListInLocalStorage(book: ResponseBook, listBooks: ResponseBook[]) {
     listBooks.push(book)
-    localStorage.setItem('myBooks',JSON.stringify(listBooks))
+    localStorage.setItem('myBooks', JSON.stringify(listBooks))
   }
 
-  updateBookInLibrary(book:ResponseBook):void{
-    let listBooks:ResponseBook[]=[]
-    if (localStorage.getItem('myBooks')===null) {
-      this.insertBookListInLocalStorage(book,listBooks)
-    }else{
-      listBooks=JSON.parse(localStorage.getItem('myBooks')!)
-      if (!listBooks.some(existBook=>existBook.id===book.id)) {
-        this.insertBookListInLocalStorage(book,listBooks)
-      }else{
+  updateBookInLibrary(book: ResponseBook): void {
+    let listBooks: ResponseBook[] = []
+    if (localStorage.getItem('myBooks') === null) {
+      this.insertBookListInLocalStorage(book, listBooks)
+    } else {
+      listBooks = JSON.parse(localStorage.getItem('myBooks')!)
+      if (!listBooks.some(existBook => existBook.id === book.id)) {
+        this.insertBookListInLocalStorage(book, listBooks)
+      } else {
         console.log("Este libro ya está en tus favoritos")
       }
     }
   }
 
-  removeBookOfLocalStorage(id:string):void{
-    let listBooks:ResponseBook[]
-    listBooks=JSON.parse(localStorage.getItem('myBooks')!)
-    const index=listBooks.findIndex(book=>book.id===id)
-    if (index!==-1) {
-      listBooks.splice(index,1)
+
+  isBookInLocalStorage(id: string): string {
+    let listBooks: ResponseBook[] = []
+    listBooks = JSON.parse(localStorage.getItem('myBooks')!)
+    if (listBooks.find(book => book.id === id)) {
+      return id
+    }
+    return 'No existe'
+  }
+
+  removeBookOfLocalStorage(id: string) {
+    let listBooks: ResponseBook[]
+    listBooks = JSON.parse(localStorage.getItem('myBooks')!)
+    const index = listBooks.findIndex(book => book.id === id)
+    if (index !== -1) {
+      console.log(index)
+      listBooks.splice(index, 1)
+      localStorage.setItem('myBooks', JSON.stringify(listBooks))
+
     }
 
   }

@@ -5,13 +5,15 @@ import { delay, switchMap } from 'rxjs';
 import { ServiceBook } from '../../services/service-book.service';
 import { ResponseBook } from '../../interfaces/book.interface';
 import { LoaderSkeletonComponent } from '../../components/loader-skeleton/loader-skeleton.component';
+import { DeleteBookComponent } from '../../components/delete-book/delete-book.component';
 
 @Component({
   selector: 'app-book',
   standalone: true,
   imports: [
 
-    LoaderSkeletonComponent
+    LoaderSkeletonComponent,
+    DeleteBookComponent
   ],
   templateUrl: './book.component.html',
   styleUrl: './book.component.css'

@@ -1,10 +1,13 @@
 <div class="content-book">
 
 @defer () {
-    <div class="content-add">
+    <div class="content-add-delete">
       <div class="add">
         <p>Añadir a Biblioteca</p>
         <button (click)="addToLibrary()"><i class="fa-solid fa-right-to-bracket"></i></button>
+      </div>
+      <div class="delete">
+      <app-delete-book></app-delete-book>
       </div>
     </div>
     <div class="content-img-details">

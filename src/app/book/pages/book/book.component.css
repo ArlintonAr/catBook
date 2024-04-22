@@ -2,8 +2,11 @@
 
 }
 /* *******************Agregar a biblioteca*************** */
-.content-add{
+.content-add-delete{
   border-bottom: 1px solid black;
+  display: flex;
+  gap:1rem;
+  justify-content: flex-end;
 }
 .add{
   margin-right: 2rem;
