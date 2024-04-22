@@ -21,7 +21,7 @@ import { DeleteBookComponent } from '../../components/delete-book/delete-book.co
 export default class BookComponent implements OnInit {
 
   public book?:ResponseBook | undefined
-
+  public existBook:boolean=false
 
   private serviceBook=inject(ServiceBook)
   private activatedRoute=inject(ActivatedRoute)
@@ -38,9 +38,16 @@ export default class BookComponent implements OnInit {
       .subscribe(book=>{
         if(!book) return this.router.navigate(['/books/list-books'])
           this.book=book
+         const id=this.serviceBook.isBookInLocalStorage(book.id)
+          if (!(id==='No existe')) {
+              this.existBook=true
+          }
           return
-        })
+        }
+
+      )
   }
+
 
   addToLibrary(){
     if (this.book) {

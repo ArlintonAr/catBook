@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, switchMap } from 'rxjs';
 import { ResponseBook } from '../../interfaces/book.interface';
@@ -13,10 +13,10 @@ import { ServiceBook } from '../../services/service-book.service';
 })
 export class DeleteBookComponent implements OnInit {
 
-  public isButtonActive: boolean = false;
+
   private activeRoute = inject(ActivatedRoute)
-  private serviceBook = inject(ServiceBook)
   private route=inject(Router)
+  private serviceBook = inject(ServiceBook)
 
   ngOnInit(): void {
 
