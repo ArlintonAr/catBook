@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, inject } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild, inject } from '@angular/core';
 
 import { BehaviorSubject, Observable, Subject, Subscription, debounceTime } from 'rxjs';
 
@@ -16,6 +16,7 @@ import { BehaviorSubject, Observable, Subject, Subscription, debounceTime } from
 export default class SearchComponent implements OnInit {
 
   public termInitial: string = 'Ingeniering'
+ @ViewChild('txtSearchInput') txtSearchInput!:ElementRef<HTMLInputElement>
   /////////////////////////////
   private debouncer: BehaviorSubject<string> = new BehaviorSubject(this.termInitial)
   public readonly currentDebouncer: Observable<string> = this.debouncer.asObservable()
@@ -45,8 +46,11 @@ export default class SearchComponent implements OnInit {
   }
 
   onKeyPress(searchTerm: string) {
-      this.debouncer.next(searchTerm)
-    }
+    this.debouncer.next(searchTerm)
+  }
 
 
+  activeInputSearch(): void {
+    this.txtSearchInput.nativeElement.focus()
+  }
 }
