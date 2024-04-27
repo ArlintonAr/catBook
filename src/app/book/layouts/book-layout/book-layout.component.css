@@ -17,7 +17,24 @@
   margin-top: 5px;
 
 }
+a{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  color:#75E6A4 ;
+}
 
+.navigation button{
+  background-color: white;
+  border-style: none;
+  font-family: 'Lora';
+  cursor: pointer;
+}
+.navigation button:hover{
+  color: #75E6A4 ;
+}
+/* **************************** */
 .content-filters{
   padding: 0rem 2rem 0rem 2rem;
   font-weight: 400;

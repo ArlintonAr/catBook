@@ -1,0 +1,152 @@
+/* ***********contenido general************* */
+.content-login {
+
+
+  background-image: url('https://img.freepik.com/vector-gratis/ilustracion-concepto-biblioteca-escolar_114360-21514.jpg?t=st=1713978411~exp=1713982011~hmac=0095bf7b524bc10709c64f1a46905fe6529756589bc0150fa5439e2a66ca9904&w=1380');
+
+}
+
+.content-card-login {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+/* ***********contenido Login************* */
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 65%;
+  width: 30%;
+
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.7);
+  border: 1px solid black;
+}
+
+.title-logo {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  width: 100%;
+
+  background-color: white;
+
+  border-bottom: 1px solid black;
+
+}
+
+.title-logo h3 {
+  margin: 0;
+  padding-top: 1rem;
+
+}
+
+
+.title-logo img {
+  height: 70px;
+  width: 160px;
+  margin-bottom: 1rem;
+
+}
+
+
+@media only screen and (max-width: 768px) {
+  .login{
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .login{
+    height: 50%;
+  }
+}
+
+/* ***********contenido Formulario************* */
+
+.content-form {
+  border-bottom: 1px solid black;
+
+  width: 100%;
+}
+
+.form-inputs {
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.user {
+  border-bottom: 1px solid black;
+}
+
+
+input {
+  margin:0;
+  padding: 0;
+
+
+  border-style: none;
+  outline-style: none;
+
+  font-size: 1rem;
+  font-family: 'lora';
+  text-align: center;
+
+  height: 5rem;
+  width: 100%;
+
+
+}
+
+
+/* *****************contenido botones*************** */
+
+.access-register {
+
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+
+}
+
+button {
+  height: 100%;
+  width: 100%;
+  border-style: none;
+  font-family: 'lora';
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: white;
+
+}
+
+
+.access {
+  flex: 1;
+  border-right: 1px solid black;
+}
+
+.register {
+  flex: 1;
+}
+
+ button:hover{
+  background-color:#75E6A4 ;
+  color: black;
+  font-weight: bold;
+  transition: .7s;
+}
+

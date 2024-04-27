@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+
+@if (!finishedAuthCheck()) {
+  <h1>Cargando...</h1>
+}
+
+@if(finishedAuthCheck()){
+  <router-outlet></router-outlet>
+}
+

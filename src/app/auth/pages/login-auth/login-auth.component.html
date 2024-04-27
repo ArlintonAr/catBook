@@ -1,0 +1,47 @@
+<div class="content-login">
+  <form action=""
+  [formGroup]="authForm"
+  class="form-inputs"
+  (ngSubmit)="login()"
+  >
+    <div class="content-card-login">
+
+      <div class="login">
+
+        <div class="title-logo">
+          <h1>Acceder</h1>
+          <img src="../../../../assets/logo.png" alt="">
+        </div>
+
+        <div class="content-form">
+
+          <div class="user">
+            <input
+            type="email"
+            placeholder="Correo"
+            formControlName="email"
+            >
+          </div>
+          <div class="password">
+            <input
+            type="password"
+            placeholder="Contraseña"
+            formControlName="password"
+            >
+          </div>
+
+        </div>
+
+        <div class="access-register">
+          <div class="access">
+            <button>Acceder</button>
+          </div>
+          <div class="register">
+            <button>Registrarse</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>
