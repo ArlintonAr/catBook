@@ -65,7 +65,7 @@
 .content-card-login {
 height: 90vh;
 }
-
+}
 @media only screen and (min-width: 1500px) {
   .login{
     height: 50%;
