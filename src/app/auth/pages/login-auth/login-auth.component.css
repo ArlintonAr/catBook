@@ -59,15 +59,17 @@
 
 
 @media only screen and (max-width: 768px) {
-  .login{
+  .login {
     width: 90%;
   }
-.content-card-login {
-height: 90vh;
+
+  .content-card-login {
+    height: 90vh;
+  }
 }
-}
+
 @media only screen and (min-width: 1500px) {
-  .login{
+  .login {
     height: 50%;
   }
 }
@@ -95,7 +97,7 @@ height: 90vh;
 
 
 input {
-  margin:0;
+  margin: 0;
   padding: 0;
 
 
@@ -145,11 +147,9 @@ button {
   flex: 1;
 }
 
- button:hover{
-  background-color:#75E6A4 ;
+button:hover {
+  background-color: #75E6A4;
   color: black;
   font-weight: bold;
   transition: .7s;
 }
-
-

@@ -7,5 +7,5 @@ export const environment={
 }
 
 export const environmentAuth={
-  url:'backend-books-production-373f.up.railway.app'
+  url:'https://backend-books.up.railway.app'
 }
