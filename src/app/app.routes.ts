@@ -9,7 +9,7 @@ export const routes: Routes = [
 
   {
     path: 'books',
-    canActivate:[privateGuard],
+    canActivate: [privateGuard],
     loadComponent: () => import('./book/book.component'),
     children: [
       {
@@ -35,19 +35,19 @@ export const routes: Routes = [
   },
   {
     path: 'auth',
-    canActivate:[publicGuard],
+    canActivate: [publicGuard],
     loadComponent: () => import('./auth/auth.component'),
-    children:[
+    children: [
       {
-        path:'login',
-        loadComponent:()=>import('./auth/pages/login-auth/login-auth.component')
+        path: 'login',
+        loadComponent: () => import('./auth/pages/login-auth/login-auth.component')
       },
       {
-        path:'register',
-        loadComponent:()=>import('./auth/pages/register-auth/register-auth.component')
+        path: 'register',
+        loadComponent: () => import('./auth/pages/register-auth/register-auth.component')
       },
       {
-        path:'', redirectTo:'login',pathMatch:'full'
+        path: '', redirectTo: 'login', pathMatch: 'full'
       }
     ]
   },

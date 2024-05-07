@@ -2,6 +2,7 @@
   <form action=""
   [formGroup]="authForm"
   class="form-inputs"
+  autocomplete="off"
   (ngSubmit)="login()"
   >
     <div class="content-card-login">
@@ -11,6 +12,11 @@
         <div class="title-logo">
           <h1>Acceder</h1>
           <img src="../../../../assets/logo.png" alt="">
+          <div class="content-error">
+            @if(errorLogin){
+              <span>{{errorLogin}}</span>
+            }
+          </div>
         </div>
 
         <div class="content-form">
@@ -30,14 +36,22 @@
             >
           </div>
 
+
         </div>
 
         <div class="access-register">
           <div class="access">
-            <button>Acceder</button>
+            <button
+            [disabled]="authForm.disabled"
+            type="submit"
+            >
+            Acceder</button>
           </div>
           <div class="register">
-            <button>Registrarse</button>
+            <button (click)="navigateRegister()"
+            type="button"
+            >
+            Registrarse</button>
           </div>
         </div>
 

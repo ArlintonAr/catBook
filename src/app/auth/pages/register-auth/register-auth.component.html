@@ -1,1 +1,76 @@
-<p>register-auth works!</p>
+
+
+<div class="content-register-global">
+  <form
+  action=""
+  class="content-form"
+  [formGroup]="registerForm"
+  (ngSubmit)="onSubmit()"
+  >
+
+    <div class="content-register">
+
+      <div class="title-logo">
+        <h1>Registarse</h1>
+        <img src="../../../../assets/logo.png" alt="">
+        <div class="content-error">
+          @if(errorsInternal){
+            <span>{{errorsInternal}}</span>
+          }
+        </div>
+      </div>
+
+      <div class="content-inputs">
+        <div class="name" >
+          <input type="text" placeholder="Nombre y Apellidos" formControlName="name">
+          @if (isValidField('name')) {
+            <span>Debe ser un formato nombre y apellido</span>
+          }
+        </div>
+        <div class="email">
+          <input type="email" placeholder="Correo" formControlName="email">
+          @if (isValidField('email')) {
+            <span>Debe ser un formato de correo</span>
+          }
+        </div>
+
+        <div class="password">
+          <input type="password" placeholder="Contraseña" formControlName="password">
+          @if (isValidField('password')) {
+            <span>La contraseña debe tener minimo 6 digitos</span>
+          }
+        </div>
+        <div class="passwordConfirm">
+          <input type="password" placeholder="Repetir Contraseña" formControlName="passwordRepeat">
+          @if (isValidField('passwordRepeat')) {
+            <span>Las contraseñas no coinciden</span>
+          }
+        </div>
+
+      </div>
+
+      <div class="back-register">
+        <div class="back">
+          <button
+
+          type="submit"
+          >
+          Volver</button>
+        </div>
+        <div class="register">
+          <button
+          type="button"
+
+          (click)="onSubmit()"
+          >
+          Confirmar</button>
+        </div>
+      </div>
+
+
+    </div>
+
+  </form>
+
+
+</div>

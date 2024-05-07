@@ -44,8 +44,6 @@
 }
 
 .title-logo h3 {
-  margin: 0;
-  padding-top: 1rem;
 
 }
 
@@ -53,8 +51,18 @@
 .title-logo img {
   height: 70px;
   width: 160px;
-  margin-bottom: 1rem;
 
+
+}
+.content-error {
+
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+.content-error span{
+  color: red;
+  margin: 0;
 }
 
 
