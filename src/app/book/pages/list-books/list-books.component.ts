@@ -52,7 +52,6 @@ export default class ListBooksComponent implements OnInit,OnDestroy {
     this.serviceBook.getBooksForVolumen(item)
     .subscribe((books) => {
       this.books =books.items
-      console.log(this.books)
     });
   }
 

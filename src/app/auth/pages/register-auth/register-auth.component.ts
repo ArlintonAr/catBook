@@ -37,13 +37,14 @@ export default class RegisterAuthComponent {
 
   )
 
-  isValidField(field: string) {
+  isValidField(field: string ) {
     return this.validatorsService.isValidField(field, this.registerForm)
   }
 
   onSubmit() {
-    if (!this.registerForm.errors) {
-      const { name, email, password } = this.registerForm.value
+    const { name, email, password } = this.registerForm.value
+
+    if (this.registerForm.valid) {
       this.authService.registerUser(name, email, password)
         .subscribe(
           {
@@ -54,8 +55,12 @@ export default class RegisterAuthComponent {
           }
         )
     }
-     return this.errorsInternal='Verifica todos los campos'
+      this.errorsInternal='Verifica todos los campos'
   }
 
 
+
+  back(){
+    this.route.navigateByUrl('/auth/login')
+  }
 }
